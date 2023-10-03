@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bolsa Auxílio Tecnologia</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,9 +17,9 @@
             
             <div class="divzin" id="d1">
                 <label for="tfNome">Nome:</label>
-                <input type="text" id="tfNome" placeholder="Ex: João da Silva Sauro" data-inputmask>
+                <input type="text" id="tfNome" placeholder="Ex: João da Silva Sauro"  onkeydown="return /[a-z]/i.test(event.key)">
                 <label for="tfCPF">CPF:</label>
-                <input type="text" id="tfCPF" placeholder="Ex: 123.456.789-10">
+                <input type="text" autocomplete="off" maxlength="14" id="tfCPF" placeholder="Ex: 123.456.789-10">
                 <label for="tfData">Data de Nascimento:</label>
                 <input type="date" id="tfData" placeholder="">
                 <label for="tfEmail">E-mail:</label>
@@ -35,13 +37,13 @@
                 <label for="tfRua">Lougradouro:</label>
                 <input type="text" id="tfRua" placeholder="Ex: Rua Carlos Alberto Casagrande" >
                 <label for="tfNumero">Nº:</label>
-                <input type="number" id="tfNumero" placeholder="Ex: 64">
+                <input type="number" id="tfNumero" placeholder="Ex: 64" pattern="[0-9]+">
                 <label for="tfBairro">Bairro:</label>
                 <input type="text" id="tfBairro" placeholder="Ex: Leblon">
                 <label for="tfCidade">Cidade:</label>
                 <input type="text" id="tfCidade" placeholder="Ex: Santarém">
                 <label for="tfEstado">Estado:</label>
-                <input type="text" id="tfEstado" placeholder="Ex: Pará">
+                <input type="text" id="tfEstado" placeholder="Ex: Pará" maxlength="2"  onkeydown="return /[A-Z]/i.test(event.key)">
                 
             </div>
 
@@ -58,7 +60,7 @@
 
             <div class="divzin" id="d4">
                 <label for="tfRenda">Salário ou renda mensal (somente números):</label>
-                <input type="number" id="tfRenda">
+                <input type="number" id="tfRenda" pattern="[0-9]+">
             </div>
 
             <button id="butao" type="submit">Conferir</button>
@@ -66,5 +68,6 @@
         </div>
     </form>
     <script src="script.js"></script>
+    
 </body>
 </html>
