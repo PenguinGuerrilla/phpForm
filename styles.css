@@ -22,8 +22,8 @@
 
   .divzao{
     margin: 100px auto;
-    height: 1100px;
-    width: 1000px;
+    height: 1000px;
+    width: 800px;
     background-color: #44475a;
     border-radius: 15px;
     display: flex;
@@ -35,9 +35,9 @@
     flex-wrap: wrap;
     font-family: Arial, Helvetica, sans-serif;
     align-items: center;
-    width: 960px;
+    width: 760px;
     margin: 20px;
-    font-size: 40px;
+    font-size: 30px;
   }
 
 
@@ -48,7 +48,7 @@
     margin-bottom: 30px;
     justify-content: center;
     justify-items: center;
-    width: 1000px;
+    width: 800px;
   }
 
   #d1{
@@ -57,7 +57,7 @@
   }
 
   #d2{
-    height: 250px;
+    height: 180px;
     justify-content: space-between;
   }
 
@@ -77,11 +77,11 @@
   }
   
   #tfCPF{
-    width: 250px;
+    width: 200px;
   }
 
   #tfNome{
-    width: 830px;
+    width: 650px;
   }
 
   #tfTelefone{
@@ -89,11 +89,15 @@
   }
   
   #tfEmail{
-    width: 430px;
+    width: 300px;
+  }
+
+  #tfCEP{
+    width: 80px;
   }
 
   #tfRua{
-    width: 540px;
+    width: 250px;
   }
 
   #tfNumero{
@@ -101,11 +105,15 @@
   }
 
   #tfBairro{
-    width: 300px;
+    width: 200px;
+  }
+
+  #tfCidade{
+    width: 200px;
   }
 
   #tfEstado{
-    width: 325px;
+    width: 25px;
   }
 
   #tfRenda{
