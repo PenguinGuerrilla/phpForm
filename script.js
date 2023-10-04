@@ -3,37 +3,9 @@ const telefone = document.querySelector('#tfTelefone');
 
 $("#tfTelefone").mask("(99) 99999-9999");
 $("#tfCEP").mask("99999-999");
+$("#tfCPF").mask("999.999.999-99");
 
 
-cpf.addEventListener('keypress', () => {
-    let cpfLength = cpf.value.length
-    console.log(cpfLength)
-
-    if(cpfLength == 3) {
-        cpf.value += '.';
-    }
-    if(cpfLength == 7) {
-        cpf.value += '.';
-    }
-    if(cpfLength == 11) {
-        cpf.value += '-';
-    }
-})
-
-telefone.addEventListener('keypress', () => {
-    let telefoneLength = telefone.value.length
-    console.log(telefoneLength)
-
-    if(telefoneLength == 0) {
-        telefone.value += '(';
-    }
-    if(cpfLength == 7) {
-        cpf.value += '.';
-    }
-    if(cpfLength == 11) {
-        cpf.value += '-';
-    }
-})
 
 $(document).ready(function() {
 

@@ -1,21 +1,103 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>SBAT - SISTEMA DE SOLICITAÇÃO DE BOLSA AUXÍLIO-TECNOLOGIA</title>
+   <link rel="stylesheet" href="styles.css">
+   <style>
+      #resultado{
 
-$cep = $_POST['CEP'];
+         height: 350px;
+         margin-top: 30px;
+         padding-top: 30px;
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         text-align: center;
+         gap: 10px;
+      }
+      #b2{
+         width: 200px;
+         height: 40px;
+         background-color: #bd93f9;
+         border:0;
+         border-radius: 10px;
+         color: #FFF;
+         font-size: 25px;
+         font-weight: bold;
+         cursor: pointer;
+         text-align: center;
+      }
+   </style>
+</head>
+<body>
+   
 
-$retorno = json_decode(file_get_contents("https://viacep.com.br/ws/$cep/json/"));
+   <div class="divzao" id="resultado">
+   <?php
 
-//var_dump($retorno);
+      $nome = $_POST['nome'];
+      $cpf = $_POST['cpf'];
+      $data = $_POST['data'];
+      $renda = $_POST['renda'];
+      $dataPreenchimento = date('d/m/y H:i');
+      $computador = isset($_POST['computador'])?true:false;
+      $celular = isset($_POST['celular'])?true:false;
+      $notebook = isset($_POST['notebook'])?true:false;
+      date_default_timezone_set('America/Argentina/Buenos_Aires');
+      $dataPreenchimento = date('d/m/y H:i');
 
-print("<h1>Resultado da consulta</h1>");
-print("Logradouro: ".$retorno->logradouro."<br>");
+      $dataNasc = new DateTime($data);
+      $idade = $dataNasc->diff(new DateTime( date('Y-m-d')));
+      $idade = $idade->format('%Y');
 
-if($retorno->complemento <> "") {
-   print("Complemento: ".$retorno->complemento."<br>");
-}
+      print("<h1>SBAT - SISTEMA DE SOLICITAÇÃO DE BOLSA AUXÍLIO-TECNOLOGIA</h1>"); 
+      print("<p>CPF: ${cpf}<p>"); 
+      print("<p>Nome Completo: ${nome}<br><p>"); 
+      print("<p>Data e hora de preenchimento ${dataPreenchimento}</p>"); 
+      print("${idade} anos");
+      
 
+      
+      if($renda > 3000){
+         print("<strong>Você não tem direito a nenhum dos itens</strong>");
+         
+      }
+      elseif($idade > 65){
+         
+         print("<strong>Você tem direito a 1 notebook e 1 smartphone</strong>");
+      }
+      elseif($idade < 18){
+         
+         print("<strong>Você não tem direito a nenhum dos itens</strong>");
+      }
+      elseif(!$computador && !$notebook && !$celular){
+         
+         print("<strong>Você tem direito a 1 notebook</strong>");
+      }
+      elseif($renda < 1000){
+         print("<strong>Você tem direito a 1 notebook e 1 smartphone</strong>");
+      }
 
-print("Bairro: ".$retorno->bairro."<br>");
-print("Cidade: ".$retorno->localidade."<br>");
-print("Estado: ".$retorno->uf);
+      ?>
 
-?>
+     <div id="divButao"></div>
+     <button id="b2" name="b2">Imprimir</button>
+   </div>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script>
+         $('#b2').click(function(){
+         document.getElementById('b2').setAttribute('hidden', '');
+         document.getElementById("divButao").innerHTML = "<p><strong>Leve este comprovante, um documento com foto, e procure o almoxarifado para retirada</strong></p>";
+         window.print();
+         document.getElementById("divButao").innerHTML = "";
+         document.getElementById('b2').removeAttribute('hidden');
+         
+    
+   })
+   </script>
+   
+</body>
+</html>

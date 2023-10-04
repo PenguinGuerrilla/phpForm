@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bolsa Auxílio Tecnologia</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form action="consulta.php" method="post">
+    <form action="consulta.php" method="POST">
         <div class="divzao">
             <div id="title"><h1>Bolsa Auxílio Tecnologia</h1></div>
         
@@ -17,15 +17,15 @@
             
             <div class="divzin" id="d1">
                 <label for="tfNome">Nome:</label>
-                <input type="text" id="tfNome" placeholder="Ex: João da Silva Sauro"  onkeydown="return /[a-z]/i.test(event.key)">
+                <input type="text" name="nome" id="tfNome" placeholder="Ex: João da Silva Sauro">
                 <label for="tfCPF">CPF:</label>
-                <input type="text" autocomplete="off" maxlength="14" id="tfCPF" placeholder="Ex: 123.456.789-10">
+                <input type="text" name="cpf" autocomplete="off" maxlength="14" id="tfCPF" placeholder="Ex: 123.456.789-10">
                 <label for="tfData">Data de Nascimento:</label>
-                <input type="date" id="tfData" placeholder="">
+                <input type="date" name="data" id="tfData" placeholder="">
                 <label for="tfEmail">E-mail:</label>
-                <input type="email" id="tfEmail" placeholder="Ex: SilvaSauro@igmail.com">
+                <input type="email" name="email" id="tfEmail" placeholder="Ex: SilvaSauro@igmail.com">
                 <label for="tfTelefone">Telefone:</label>
-                <input type="text" id="tfTelefone" placeholder="(12) 9 1234-5678">
+                <input type="text" name="telefone" id="tfTelefone" placeholder="(12) 9 1234-5678">
                 
             </div>
 
@@ -33,17 +33,17 @@
             
             <div class="divzin" id="d2">
                 <label for="tfCEP">CEP:</label>
-                <input type="text" id="tfCEP" name="CEP" placeholder="Ex: 12345-678">
-                <label for="tfRua">Lougradouro:</label>
+                <input type="text" id="tfCEP" name="CEP" placeholder="12345-678">
+                <label for="tfRua" name="rua">Lougradouro:</label>
                 <input type="text" id="tfRua" placeholder="Ex: Rua Carlos Alberto Casagrande" >
                 <label for="tfNumero">Nº:</label>
-                <input type="number" id="tfNumero" placeholder="Ex: 64" pattern="[0-9]+">
+                <input type="number" name="numero" id="tfNumero" placeholder="Ex: 64" pattern="[0-9]+">
                 <label for="tfBairro">Bairro:</label>
-                <input type="text" id="tfBairro" placeholder="Ex: Leblon">
+                <input type="text" name="bairro" id="tfBairro" placeholder="Ex: Leblon">
                 <label for="tfCidade">Cidade:</label>
-                <input type="text" id="tfCidade" placeholder="Ex: Santarém">
+                <input type="text" name="cidade" id="tfCidade" placeholder="Ex: Santarém">
                 <label for="tfEstado">Estado:</label>
-                <input type="text" id="tfEstado" placeholder="Ex: Pará" maxlength="2"  onkeydown="return /[A-Z]/i.test(event.key)">
+                <input type="text" name="estado" id="tfEstado" placeholder="PA" maxlength="2"  onkeydown="return /[A-Z]/i.test(event.key)">
                 
             </div>
 
@@ -51,16 +51,16 @@
 
             <div class="divzin" id="d3">
                 <label for="lower">Possui Computador?</label>
-                <input type="checkbox" id="possuiComp">
+                <input type="checkbox" name="computador" id="possuiComp">
                 <label for="upper">Possui Celular?</label>
-                <input type="checkbox" id="possuiCelular">
+                <input type="checkbox" name="celular" id="possuiCelular">
                 <label for="upper">Possui Notebook?</label>
-                <input type="checkbox" id="possuiNote">
+                <input type="checkbox" name="notebook" id="possuiNote">
             </div>
 
             <div class="divzin" id="d4">
                 <label for="tfRenda">Salário ou renda mensal (somente números):</label>
-                <input type="number" id="tfRenda" pattern="[0-9]+">
+                <input type="number" name="renda" id="tfRenda" pattern="[0-9]+">
             </div>
 
             <button id="butao" type="submit">Conferir</button>
