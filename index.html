@@ -10,22 +10,22 @@
 </head>
 <body>
     <form action="consulta.php" method="POST">
-        <div class="divzao">
+        <div class="divzao" style="outline: 1px solid black;">
             <div id="title"><h1>Bolsa Auxílio Tecnologia</h1></div>
         
             <hr>
             
             <div class="divzin" id="d1">
                 <label for="tfNome">Nome:</label>
-                <input type="text" name="nome" id="tfNome" placeholder="Ex: João da Silva Sauro">
+                <input type="text" name="nome" id="tfNome" placeholder="Ex: João da Silva Sauro" required>
                 <label for="tfCPF">CPF:</label>
-                <input type="text" name="cpf" autocomplete="off" maxlength="14" id="tfCPF" placeholder="Ex: 123.456.789-10">
+                <input type="text" name="cpf" autocomplete="off" maxlength="14" id="tfCPF" placeholder="Ex: 123.456.789-10" required>
                 <label for="tfData">Data de Nascimento:</label>
-                <input type="date" name="data" id="tfData" placeholder="">
+                <input type="date" name="data" id="tfData" placeholder="" required>
                 <label for="tfEmail">E-mail:</label>
-                <input type="email" name="email" id="tfEmail" placeholder="Ex: SilvaSauro@igmail.com">
+                <input type="email" name="email" id="tfEmail" placeholder="Ex: SilvaSauro@igmail.com" required>
                 <label for="tfTelefone">Telefone:</label>
-                <input type="text" name="telefone" id="tfTelefone" placeholder="(12) 9 1234-5678">
+                <input type="text" name="telefone" id="tfTelefone" placeholder="(12) 9 1234-5678" required>
                 
             </div>
 
@@ -33,17 +33,17 @@
             
             <div class="divzin" id="d2">
                 <label for="tfCEP">CEP:</label>
-                <input type="text" id="tfCEP" name="CEP" placeholder="12345-678">
+                <input type="text" id="tfCEP" name="CEP" placeholder="12345-678" required>
                 <label for="tfRua" name="rua">Lougradouro:</label>
-                <input type="text" id="tfRua" placeholder="Ex: Rua Carlos Alberto Casagrande" >
+                <input type="text" id="tfRua" placeholder="Ex: Rua Carlos Alberto Casagrande" required>
                 <label for="tfNumero">Nº:</label>
                 <input type="number" name="numero" id="tfNumero" placeholder="Ex: 64" pattern="[0-9]+">
                 <label for="tfBairro">Bairro:</label>
-                <input type="text" name="bairro" id="tfBairro" placeholder="Ex: Leblon">
+                <input type="text" name="bairro" id="tfBairro" placeholder="Ex: Leblon" required>
                 <label for="tfCidade">Cidade:</label>
-                <input type="text" name="cidade" id="tfCidade" placeholder="Ex: Santarém">
+                <input type="text" name="cidade" id="tfCidade" placeholder="Ex: Santarém" required>
                 <label for="tfEstado">Estado:</label>
-                <input type="text" name="estado" id="tfEstado" placeholder="PA" maxlength="2"  onkeydown="return /[A-Z]/i.test(event.key)">
+                <input type="text" name="estado" id="tfEstado" placeholder="PA" maxlength="2"  onkeydown="return /[A-Z]/i.test(event.key)" required>
                 
             </div>
 
@@ -60,7 +60,7 @@
 
             <div class="divzin" id="d4">
                 <label for="tfRenda">Salário ou renda mensal (somente números):</label>
-                <input type="number" name="renda" id="tfRenda" pattern="[0-9]+">
+                <input type="number" name="renda" id="tfRenda" pattern="[0-9]+" required>
             </div>
 
             <button id="butao" type="submit">Conferir</button>

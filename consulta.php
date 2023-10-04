@@ -16,6 +16,7 @@
          align-items: center;
          text-align: center;
          gap: 10px;
+         outline: 2px solid black;
       }
       #b2{
          width: 200px;
