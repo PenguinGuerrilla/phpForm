@@ -1,7 +1,7 @@
 const cpf = document.querySelector('#tfCPF');
 const telefone = document.querySelector('#tfTelefone');
 
-$("#tfTelefone").mask("(99) 99999-9999");
+$("#tfTelefone").mask("(99)99999-9999");
 $("#tfCEP").mask("99999-999");
 $("#tfCPF").mask("999.999.999-99");
 

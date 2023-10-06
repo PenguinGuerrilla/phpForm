@@ -38,21 +38,31 @@
    <div class="divzao" id="resultado">
    <?php
 
+      include("conexao.php");
+
       $nome = $_POST['nome'];
       $cpf = $_POST['cpf'];
       $data = $_POST['data'];
+      $email = $_POST['email'];
+      $telefone = $_POST['telefone'];
+      $cep = $_POST['CEP'];
+      $rua = $_POST['rua'];
+      $numero = $_POST['numero'];
+      $bairro = $_POST['bairro'];
+      $cidade = $_POST['cidade'];
+      $estado = $_POST['estado'];
       $renda = $_POST['renda'];
-      $dataPreenchimento = date('d/m/y H:i');
       $computador = isset($_POST['computador'])?true:false;
       $celular = isset($_POST['celular'])?true:false;
       $notebook = isset($_POST['notebook'])?true:false;
       date_default_timezone_set('America/Argentina/Buenos_Aires');
       $dataPreenchimento = date('d/m/y H:i');
-
       $dataNasc = new DateTime($data);
       $idade = $dataNasc->diff(new DateTime( date('Y-m-d')));
       $idade = $idade->format('%Y');
 
+      $query = "INSERT INTO formulario (cpf,nome,dataNasc,email,telefone,cep,rua,numero,bairro,cidade,estado,renda) 
+      VALUES('$cpf','$nome','$data','$email','$telefone','$cep','$rua','$numero','$bairro','$cidade','$estado','$renda')";
       print("<h1>SBAT - SISTEMA DE SOLICITAÇÃO DE BOLSA AUXÍLIO-TECNOLOGIA</h1>"); 
       print("<p>CPF: ${cpf}<p>"); 
       print("<p>Nome Completo: ${nome}<br><p>"); 
@@ -66,25 +76,37 @@
          
       }
       elseif($idade > 65){
-         
          print("<strong>Você tem direito a 1 notebook e 1 smartphone</strong>");
       }
       elseif($idade < 18){
          
          print("<strong>Você não tem direito a nenhum dos itens</strong>");
       }
-      elseif(!$computador && !$notebook && !$celular){
-         
+      elseif(!$computador && !$notebook && !$celular){ 
          print("<strong>Você tem direito a 1 notebook</strong>");
       }
       elseif($renda < 1000){
          print("<strong>Você tem direito a 1 notebook e 1 smartphone</strong>");
       }
 
+
+
+
       ?>
 
      <div id="divButao"></div>
      <button id="b2" name="b2">Imprimir</button>
+
+      <?php
+         if(mysqli_query($connect,$query)){
+            echo '<script>alert("Armazenado no Banco de Dados com sucesso.")</script>';
+         }
+         else{
+            echo'<script>alert("Não foi possível armazenar no banco de dados)</script>';
+         }
+         mysqli_close($connect);
+      ?>
+
    </div>
 
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -95,8 +117,6 @@
          window.print();
          document.getElementById("divButao").innerHTML = "";
          document.getElementById('b2').removeAttribute('hidden');
-         
-    
    })
    </script>
    
